@@ -43,12 +43,12 @@
 **頂層方塊圖**（含實際接腳配置：`btn_GRST`=A/B板皆S6、`clk`=Y9 100MHz GCLK、`btn_raw`=A板S9/B板S5、`link_wire`=JA2腳3/Raspberry Pi GPIO2/Y5）：
 
 ![頂層方塊圖](Upload/image/方塊圖_電路圖.drawio.png)
-🔍 [看大圖](Upload/image/方塊圖_電路圖.drawio.png?raw=true)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/方塊圖_電路圖.drawio.png)
 
 **模組拆解圖**（每個子模組底下再展開各自的 process/generate 分支）：
 
 ![模組拆解圖](Upload/image/Breakdown.drawio.png)
-🔍 [看大圖](Upload/image/Breakdown.drawio.png?raw=true)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/Breakdown.drawio.png)
 
 ## 3. 通訊協定設計：link_wire
 
@@ -72,10 +72,10 @@
 `link_wire_drv` 內部依 `IS_MASTER` generic 分成兩份幾乎對稱的狀態機：
 
 ![master_gen 狀態機](Upload/image/Mstate_FSM.drawio.png)
-🔍 [看大圖](Upload/image/Mstate_FSM.drawio.png?raw=true)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/Mstate_FSM.drawio.png)
 
 ![slave_gen 狀態機](Upload/image/Sstate_FSM.drawio.png)
-🔍 [看大圖](Upload/image/Sstate_FSM.drawio.png?raw=true)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/Sstate_FSM.drawio.png)
 
 master_gen 與 slave_gen 的 state 機結構對稱：兩者每一輪都是「收 1 個 frame ＋ 送 1 個 frame」，差別只在起始動作的先後順序——master 先送（TX）後收（RX），slave 先收（RX）後送（TX）。若依此對齊比較：master 的 `S_TX_GAP` 對應 slave 的 `S_GAP2`（皆為 TX 之後的 gap），master 的 `S_GAP` 對應 slave 的 `S_GAP1`（皆為 RX 之後的 gap）。
 
@@ -92,7 +92,7 @@ master_gen 與 slave_gen 的 state 機結構對稱：兩者每一輪都是「收
 `pingpong_game` 6 個狀態，涵蓋發球、球移動、擊球視窗、球在對面板、得分、熄燈停頓：
 
 ![遊戲主 FSM](Upload/image/FSM.drawio.png)
-🔍 [看大圖](Upload/image/FSM.drawio.png?raw=true)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/FSM.drawio.png)
 
 ## 5. 驗證與模擬結果
 
@@ -127,10 +127,10 @@ PWM bit 編碼細節（t=24~42us，master 內部訊號展開）：bit0(handoff=1
 AOV（Activity-on-Vertex，事件依賴關係）與 TSPEC（實際模擬時間軸）皆取自真實模擬結果，非估算值：
 
 ![Chain AOV](Upload/image/Chain_AOV.drawio.png)
-🔍 [看大圖](Upload/image/Chain_AOV.drawio.png?raw=true)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/Chain_AOV.drawio.png)
 
 ![Chain TSPEC](Upload/image/Chain_TSPEC.drawio.png)
-🔍 [看大圖](Upload/image/Chain_TSPEC.drawio.png?raw=true)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/Chain_TSPEC.drawio.png)
 
 實測關鍵時間點（`Tb_pingpong9_chain.vhd`，9/9 checks pass，errors=0）：
 
