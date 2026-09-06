@@ -1,0 +1,178 @@
+<mxfile host="Electron">
+  <diagram name="方塊圖_電路圖" id="p9diagram">
+    <mxGraphModel dx="1436" dy="851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1307" pageHeight="730" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="clk" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#333333);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;clk&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(Y9, 100MHz GCLK)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="210" x="278" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_grst" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#333333);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;btn_GRST&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(A板:S6／B板:S6)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="68" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="btn_raw" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#333333);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;btn_raw&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(A板:S9／B板:S5)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="518" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="c0_a" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&#39;0&#39;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="44" width="51" x="7" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c0_c" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&#39;0&#39;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="44" width="51" x="672" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="A" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#3B2000);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;debounce (U_DB_GRST)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;GRST去彈跳&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="250" x="33" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="B" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#233B58);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;pingpong_game (U_GAME)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;遊戲FSM&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="270" x="405" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="D" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#40245B);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;link_wire_drv (U_LINK_WIRE)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;跨板單線協定driver&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="290" x="993" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="led_out" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#3B0000);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;led_out(7:0)&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;LED0~LED7&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="133" x="149" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="seg_out" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#3B0000);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;seg_scl / seg_sda&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;U11/U12, 本板7段&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="178" x="451" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="link_port" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#3B0000);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;link_wire (inout)&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;JA2腳3, Raspberry Pi GPIO2/Y5&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;跨板單線協定&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="310" x="983" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="clk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;" target="B" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;clk&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.783" y="2" as="geometry">
+            <mxPoint y="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="382.53" y="180.06" />
+              <mxPoint x="540.06" y="180.06" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="clk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=13;" target="C" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;clk&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.8525" as="geometry">
+            <mxPoint y="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="383" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="btn_grst" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;" target="A" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;btn_in&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="158.51999999999998" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="c0_a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=13;" target="A" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;rst=&#39;0&#39;&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="grst_combine" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;aspect=fixed;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;rst_level邊緣偵測+&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;GRST_PROPAGATE_DELAY計時&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="262.5" x="801" y="463.5" as="geometry" />
+        </mxCell>
+        <mxCell id="e7b" edge="1" parent="1" source="grst_combine" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fontSize=13;" target="B" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;combined_rst&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.3795" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="866.6" y="322.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7c" edge="1" parent="1" source="grst_combine" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;fontSize=13;" target="D" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;combined_rst&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.503" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="866.6" y="322.5" />
+            </Array>
+            <mxPoint x="1144.5" y="50" as="sourcePoint" />
+            <mxPoint x="930" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7d" edge="1" parent="1" source="D" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;strokeColor=#40245B;fontSize=13;" target="grst_combine" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;grst_rx_pulse&lt;/font&gt;">
+          <mxGeometry relative="1" x="-0.2129" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1066.49" y="345" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7e" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;fontSize=13;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="D" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;grst_tx_pulse&lt;/font&gt;">
+          <mxGeometry relative="1" x="-0.2271" y="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="993" y="463.51" />
+            </Array>
+            <mxPoint x="994.875" y="463.5" as="sourcePoint" />
+            <mxPoint x="990" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="btn_raw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontSize=13;" target="B" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;btn_raw&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.5683" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="608" y="110.03" />
+              <mxPoint x="607.5" y="110.03" />
+            </Array>
+            <mxPoint x="618.5" y="112" as="sourcePoint" />
+            <mxPoint x="598.5" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#233B58;fontSize=13;" target="C" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;seg(6:0)/digit_sel&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=light-dark(#233B58,#8A9CB4);fontSize=13;jumpStyle=arc;strokeWidth=3;" target="led_out" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;led_out(7:0)&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.7744" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="472.5" y="390" />
+              <mxPoint x="215.5" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="C" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#693300;fontSize=13;strokeWidth=3;" target="seg_out" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;scl / sda&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="c0_c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=13;entryX=1;entryY=0;entryDx=0;entryDy=0;" target="C" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;rst=&#39;0&#39;&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="698" y="489.6" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeColor=light-dark(#233B58,#AABFD8);fontSize=13;" target="D" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;handoff_tx/score_tx&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="D" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#40245B,#D5BDEC);fontSize=13;" target="B" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;handoff_rx/score_rx&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="D" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#40245B;fontSize=13;strokeWidth=3;" target="link_port" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;link_wire (inout)&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="clk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontSize=13;jumpStyle=arc;" target="A" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;clk&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.8257" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="383" y="180.06" />
+              <mxPoint x="220.5" y="180.06" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="clk" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=13;jumpStyle=arc;" target="D" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;clk&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.9226" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="383" y="180.1" />
+              <mxPoint x="1138" y="180.1" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="A" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#3B2000;fontSize=13;jumpStyle=arc;jumpSize=11;" target="grst_combine" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;rst_level&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.8735" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="158.03" y="508.52" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="C" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=light-dark(#FFFFFF,#693300);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;i2c_tca6416_driver (U_I2C_SEG)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;本板7段顯示器I2C&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="99" width="316" x="382" y="450" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

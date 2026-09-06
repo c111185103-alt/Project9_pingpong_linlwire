@@ -1,0 +1,66 @@
+<mxfile host="Electron">
+  <diagram name="方塊圖_電路圖_2" id="p9diagram">
+    <mxGraphModel dx="5875" dy="4837" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1320" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="__frame_bg" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;strokeColor=#666666;strokeWidth=2;fillColor=default;" value="" vertex="1">
+          <mxGeometry height="770" width="1260" x="-3340" y="-3430" as="geometry" />
+        </mxCell>
+        <mxCell id="rxw" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=none;strokeColor=#c98500;strokeWidth=3;fontColor=#FFFFFF;aspect=fixed;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;S_RX_WAIT&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 20px;&quot;&gt;等master的START&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" width="190" x="-3115" y="-3350" as="geometry" />
+        </mxCell>
+        <mxCell id="rx" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=none;strokeColor=#d55181;strokeWidth=3;fontColor=#FFFFFF;aspect=fixed;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;S_RX&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;逐bit取樣&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;master frame&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="140" x="-2495" y="-3325" as="geometry" />
+        </mxCell>
+        <mxCell id="gap1" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=none;strokeColor=#008300;strokeWidth=3;fontColor=#FFFFFF;aspect=fixed;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;S_GAP1&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 20px;&quot;&gt;備妥回覆內容&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="140" x="-2315" y="-2890" as="geometry" />
+        </mxCell>
+        <mxCell id="tx" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=none;strokeColor=#d95926;strokeWidth=3;fontColor=#FFFFFF;aspect=fixed;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;S_TX&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;送出frame_byte&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;回覆&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="160" x="-2848" y="-2900" as="geometry" />
+        </mxCell>
+        <mxCell id="LHUC2ku_0sw4UwnO_Yb2-1" edge="1" parent="1" source="gap2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;curved=1;strokeWidth=2;strokeColor=light-dark(#000000,#CCCCCC);" target="rxw">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-3185" y="-3187.8" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LHUC2ku_0sw4UwnO_Yb2-2" connectable="0" parent="LHUC2ku_0sw4UwnO_Yb2-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;cnt=GAP_CYCLES-1&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0142" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gap2" parent="1" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=none;strokeColor=#199e70;strokeWidth=3;fontColor=#FFFFFF;aspect=fixed;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;S_GAP2&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;送完穩定期&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="-3245" y="-2880" as="geometry" />
+        </mxCell>
+        <mxCell id="__frame_title" parent="1" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=center;fillColor=#2a2a2a;fontColor=#FFFFFF;" value="&lt;div&gt;&lt;font style=&quot;font-size: 22px;&quot;&gt;&lt;b style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;link_wire_drv slave_gen (sstate) round-trip 協定深入圖&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48" width="1260" x="-3340" y="-3430" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="rxw" style="edgeStyle=none;rounded=0;curved=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#AAAAAA,#CCCCCC);fontSize=13;strokeWidth=2;" target="rx" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;wire_clean下降緣（偵測到master START）&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.0154" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="rx" style="edgeStyle=orthogonalEdgeStyle;rounded=0;curved=1;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=light-dark(#AAAAAA,#CCCCCC);fontSize=13;strokeWidth=2;" target="gap1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;bit_idx=7且完整收滿8bit&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="gap1" style="edgeStyle=none;rounded=0;curved=1;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#AAAAAA,#CCCCCC);fontSize=13;strokeWidth=2;" target="tx" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;cnt=SLAVE_REPLY_GAP_CYCLES-1&lt;br&gt;（備妥frame_byte）&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="tx" style="edgeStyle=none;rounded=0;curved=1;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#AAAAAA,#CCCCCC);fontSize=13;strokeWidth=2;" target="gap2" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;cnt=FRAME_CYCLES-1&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="rx" style="edgeStyle=none;rounded=0;curved=1;html=1;exitX=0.3;exitY=0.85;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;strokeColor=#c98500;dashed=1;strokeWidth=2;fontSize=13;" target="rxw" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;wait_timer逾時（這個bit等不到降緣）&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.0068" y="-5" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="-2535" y="-3070" />
+              <mxPoint x="-2895" y="-3060" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

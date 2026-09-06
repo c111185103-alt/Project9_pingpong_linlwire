@@ -1,0 +1,121 @@
+<mxfile host="Electron">
+  <diagram name="Breakdown" id="p9breakdown0001">
+    <mxGraphModel dx="2513" dy="1405" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4393" pageHeight="725" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ROOT" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 22px;&quot;&gt;&lt;b style=&quot;&quot;&gt;pingpong9_hw_top&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="54" width="227" x="1787.2" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="A" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#3B2000);" value="&lt;div&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;debounce (U_DB_GRST)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;GRST去彈跳&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="116" width="252" x="40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="A1" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;兩級同步器+計數穩定去彈跳&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(debounce.vhd，沿用不變)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="107" width="256" x="38" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="B" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#233B58);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;pingpong_game (U_GAME)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;遊戲FSM，沿用P5/6邏輯&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="116" width="275" x="1109.2" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="B1" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#34544D);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;debounce (U_DB_BTN)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;打擊鍵去彈跳&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="116" width="241" x="322" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="B2" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#565600);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;ball_counter (U_BALL)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;球位移+邊界自動翻向&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(沿用P5/6不變)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="148" width="264" x="593" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="B3" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;game_tick分頻器&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="78" width="162" x="887" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="B4" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#58002B);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;FSM狀態機：狀態暫存器&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;+計時器/moved旗標&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;+next-state邏輯(新增S_AWAY)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="136" width="274" x="1079" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="B5" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;得分邏輯：只認外部score_rx&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;累加，本地犯規只送score_tx&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="107" width="269" x="1377" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="B6" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;球位置→LED0~7 one-hot&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(S_BLANK/S_AWAY時全滅)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="107" width="256" x="1666" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="B7" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;7段顯示：切換tick+BCD解碼&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(僅顯示本板分數)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="107" width="264" x="1941" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="C" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#693300);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;i2c_tca6416_driver (U_I2C_SEG)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;本板7段顯示器I2C&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="116" width="366" x="2205" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="C1" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;I2C master時序，寫入TCA6416&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;暫存器控制7段顯示&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(沿用Project7不變)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="136" width="269" x="2254" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="D" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#40245B);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;子模組&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;link_wire_drv (U_LINK_WIRE)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;跨板單線協定driver&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="116" width="332" x="3469.4" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="D1" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#004F4F);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;generate分支&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;master_gen&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(IS_MASTER=true時生效)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="116" width="269" x="3034.2" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="D1a" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;TX：進驅動state同一clock edge內立即把&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;該bit值驅動出去，drive0&amp;lt;=NOT bit_value&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(open-drain極性)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="136" width="373" x="2564" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="D1b" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;RX：每個bit各自重新抓自己的下降緣取樣，&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;不共用單一時間基準&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(避免逐bit累積時脈飄移)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="136" width="399" x="2969" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="D1c" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;process&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Round-trip控制+ACK重傳+rx_confirm防抖：&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;送frame→轉聽→收完送下一輪(含逾時保護)；&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;pending_handoff/score等對方ack才清；&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;同frame連兩輪一致才觸發&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="165" width="411" x="3398" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="D2" parent="1" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=light-dark(#FFFFFF,#245324);" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;generate分支&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;slave_gen&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;(IS_MASTER=false時生效，對稱邏輯：&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;監聽為主動端，其餘TX/RX/ACK機制與master_gen相同)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="148" width="542" x="3811" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="ROOT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="A" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="A1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="ROOT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="B" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="B7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="ROOT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="C">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="C" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="C1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="ROOT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="D">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="D" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="D1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="D1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="D1a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="D1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="D1b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="D1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="D1c">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="D" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="D2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
