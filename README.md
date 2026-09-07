@@ -50,6 +50,14 @@
 ![模組拆解圖](Upload/image/Breakdown.drawio.png)
 🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/Breakdown.drawio.png)
 
+再往下展開 `pingpong_game (U_GAME)` 與 `link_wire_drv (U_LINK_WIRE)` 這兩個核心模組內部的訊號流：
+
+![pingpong_game 內部電路](Upload/image/方塊圖_電路圖_1.drawio.png)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/方塊圖_電路圖_1.drawio.png)
+
+![link_wire_drv 內部電路](Upload/image/方塊圖_電路圖_2.drawio.png)
+🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/方塊圖_電路圖_2.drawio.png)
+
 ## 3. 通訊協定設計：link_wire
 
 `link_wire` 是跑在單一開集極（open-drain 風格）雙向線上的輪詢式協定：兩板不斷交換固定長度的 frame，類似 I2C polling，而不是有事件才觸發的中斷式協定。
