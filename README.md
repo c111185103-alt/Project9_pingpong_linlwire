@@ -75,6 +75,29 @@
 
 每個 bit 用 PWM 方式編碼在一段固定週期裡：`0` 拉低較長（LOW_LONG），`1` 拉低較短（LOW_SHORT），frame 結構是 `START + guard + 8 個 data bit`。`pending_handoff`/`pending_score`/`pending_grst` 要等到對面回傳對應的 ack bit 才會清除——沒收到 ack 就會在下一輪重送，這是一個簡單的 ACK-based retry 機制。收到的 bit 還會做「連續兩輪 frame 讀到同一個值才觸發」的 debounce（`rx_confirm`），避免單一 bit 雜訊誤觸發得分/交接。
 
+### 輸入端：兩級同步 + 毛刺濾波
+
+FSM 判斷 frame 邊緣之前，`link_wire` 這條腳位訊號要先經過一層輸入整理，這跟 `debounce.vhd` 處理按鍵的手法幾乎一模一樣，只是時間常數差很多：
+
+```vhdl
+wire_s0 <= to_x01(link_wire);   -- 第一級同步
+wire_s1 <= wire_s0;             -- 第二級同步（同步器輸出）
+
+-- 濾波：wire_s1要連續GLITCH_FILTER_CYCLES個clk都跟目前wire_clean不同，
+-- 才真的採信這次改變、更新wire_clean，濾掉比這個門檻還短的毛刺
+if wire_s1 = wire_clean then
+    glitch_cnt <= 0;
+elsif glitch_cnt = GLITCH_FILTER_CYCLES - 1 then
+    wire_clean <= wire_s1;
+    glitch_cnt <= 0;
+else
+    glitch_cnt <= glitch_cnt + 1;
+end if;
+```
+
+- **兩級同步器**（`wire_s0`→`wire_s1`）：對面板子驅動的 `link_wire` 對本板 `clk` 來說是完全獨立的非同步訊號域，先過兩級 FF 擋掉 metastability，跟 `debounce.vhd` 的 `btn_sync0`/`btn_sync1` 是同一招。
+- **毛刺濾波**（`wire_clean`）：`wire_s1` 要連續 `GLITCH_FILTER_CYCLES`（=8）個 clk 都跟目前的 `wire_clean` 不同，才會真的更新——概念上等同按鍵的 `DEBOUNCE_LIMIT` 穩定計數，只是門檻差了好幾個數量級：100MHz 下 `GLITCH_FILTER_CYCLES=8` ≈ **80ns**，對應板間 open-drain 線路的電氣雜訊時間尺度；按鍵的 `DEBOUNCE_LIMIT=1,000,000` ≈ 10ms，對應人手機械彈跳的時間尺度。master/slave 的 FSM 邊緣判斷全部吃 `wire_clean`，不是 `wire_s1` 本身。
+
 ### master_gen / slave_gen 狀態機
 
 `link_wire_drv` 內部依 `IS_MASTER` generic 分成兩份幾乎對稱的狀態機：
