@@ -20,6 +20,19 @@
 
 ---
 
+## 名詞說明：peer_A / peer_B（原 master/slave）
+
+本專案最初規劃用 I2C 做跨板通訊，程式碼裡因此沿用了 I2C 常見的 **master/slave** 命名（`sw_master`、`is_master_latched`、`master_gen`/`slave_gen`、`IS_MASTER` generic 等）。但最終定案的 `link_wire` 協定是**單線雙向、兩板電路完全對稱**的點對點（peer-to-peer）輪詢式協定，並沒有真正的主從匯流排關係——master/slave 只是代表開機當下 `SW0` 開關鎖存出來的「角色」（先送或先收、開機球在哪一端、LED 接腳方向），兩板地位平等。
+
+為避免造成「這是主從式協定」的誤解，本文件之後一律用 **peer_A**（原 master）／**peer_B**（原 slave）稱呼兩板；VHDL 原始碼與圖表裡引用實際程式碼識別字的地方（`sw_master`、`master_gen`/`slave_gen`、`is_master` 等）維持原樣不動——改動這些牽涉到 synthesis，風險與效益不成比例。對照如下：
+
+| 文件用語 | 對應 VHDL 命名/鎖存值 |
+| --- | --- |
+| peer_A | `sw_master`='1' → `is_master_latched`='1' → 跑 `master_gen` 那份邏輯 |
+| peer_B | `sw_master`='0' → `is_master_latched`='0' → 跑 `slave_gen` 那份邏輯 |
+
+---
+
 ## 1. 專案簡介
 
 - 雙板各自獨立跑遊戲邏輯與本地 7 段顯示器（透過 `I2c_tca6416_driver` 驅動板上的 TCA6416 GPIO expander），僅在「球需要交接給對面」與「分數變動」時才需要跨板同步。
@@ -96,23 +109,23 @@ end if;
 ```
 
 - **兩級同步器**（`wire_s0`→`wire_s1`）：對面板子驅動的 `link_wire` 對本板 `clk` 來說是完全獨立的非同步訊號域，先過兩級 FF 擋掉 metastability，跟 `debounce.vhd` 的 `btn_sync0`/`btn_sync1` 是同一招。
-- **毛刺濾波**（`wire_clean`）：`wire_s1` 要連續 `GLITCH_FILTER_CYCLES`（=8）個 clk 都跟目前的 `wire_clean` 不同，才會真的更新——概念上等同按鍵的 `DEBOUNCE_LIMIT` 穩定計數，只是門檻差了好幾個數量級：100MHz 下 `GLITCH_FILTER_CYCLES=8` ≈ **80ns**，對應板間 open-drain 線路的電氣雜訊時間尺度；按鍵的 `DEBOUNCE_LIMIT=1,000,000` ≈ 10ms，對應人手機械彈跳的時間尺度。master/slave 的 FSM 邊緣判斷全部吃 `wire_clean`，不是 `wire_s1` 本身。
+- **毛刺濾波**（`wire_clean`）：`wire_s1` 要連續 `GLITCH_FILTER_CYCLES`（=8）個 clk 都跟目前的 `wire_clean` 不同，才會真的更新——概念上等同按鍵的 `DEBOUNCE_LIMIT` 穩定計數，只是門檻差了好幾個數量級：100MHz 下 `GLITCH_FILTER_CYCLES=8` ≈ **80ns**，對應板間 open-drain 線路的電氣雜訊時間尺度；按鍵的 `DEBOUNCE_LIMIT=1,000,000` ≈ 10ms，對應人手機械彈跳的時間尺度。peer_A/peer_B 的 FSM 邊緣判斷全部吃 `wire_clean`，不是 `wire_s1` 本身。
 
-### master_gen / slave_gen 狀態機
+### peer_A / peer_B 狀態機（`master_gen` / `slave_gen`）
 
 `link_wire_drv` 內部依 `IS_MASTER` generic 分成兩份幾乎對稱的狀態機：
 
-![master_gen 狀態機](Upload/image/Mstate_FSM.drawio.png)
+![peer_A（master_gen）狀態機](Upload/image/Mstate_FSM.drawio.png)
 🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/Mstate_FSM.drawio.png)
 
-![slave_gen 狀態機](Upload/image/Sstate_FSM.drawio.png)
+![peer_B（slave_gen）狀態機](Upload/image/Sstate_FSM.drawio.png)
 🔍 [看大圖](https://raw.githubusercontent.com/c111185103-alt/Project9_pingpong_linlwire/main/Upload/image/Sstate_FSM.drawio.png)
 
-master_gen 與 slave_gen 的 state 機結構對稱：兩者每一輪都是「收 1 個 frame ＋ 送 1 個 frame」，差別只在起始動作的先後順序——master 先送（TX）後收（RX），slave 先收（RX）後送（TX）。若依此對齊比較：master 的 `S_TX_GAP` 對應 slave 的 `S_GAP2`（皆為 TX 之後的 gap），master 的 `S_GAP` 對應 slave 的 `S_GAP1`（皆為 RX 之後的 gap）。
+`master_gen` 與 `slave_gen`（即 peer_A/peer_B）的 state 機結構對稱：兩者每一輪都是「收 1 個 frame ＋ 送 1 個 frame」，差別只在起始動作的先後順序——peer_A 先送（TX）後收（RX），peer_B 先收（RX）後送（TX）。若依此對齊比較：peer_A 的 `S_TX_GAP` 對應 peer_B 的 `S_GAP2`（皆為 TX 之後的 gap），peer_A 的 `S_GAP` 對應 peer_B 的 `S_GAP1`（皆為 RX 之後的 gap）。
 
 刻意保留兩處不對稱：
-1. 只有 master 的 `S_RX_WAIT` 設有 `RX_TIMEOUT` 逾時重啟，slave 等待不設逾時——避免兩邊各自逾時重啟互相打架，只能有一邊負責重啟整個循環。
-2. slave 送回覆前的等待用 `SLAVE_REPLY_GAP_CYCLES`（＝`GAP_CYCLES` 的 3 倍），比 master 對應位置的等待更長，確保 master 真的已切到聽的狀態才送出，避免漏收。
+1. 只有 peer_A 的 `S_RX_WAIT` 設有 `RX_TIMEOUT` 逾時重啟，peer_B 等待不設逾時——避免兩邊各自逾時重啟互相打架，只能有一邊負責重啟整個循環。
+2. peer_B 送回覆前的等待用 `SLAVE_REPLY_GAP_CYCLES`（＝`GAP_CYCLES` 的 3 倍），比 peer_A 對應位置的等待更長，確保 peer_A 真的已切到聽的狀態才送出，避免漏收。
 
 ### Shared-GRST（一板重置、兩板都重置）
 
@@ -145,11 +158,11 @@ master_gen 與 slave_gen 的 state 機結構對稱：兩者每一輪都是「收
 
 ![第一個有效 frame](Upload/image/annotated_2_first_frame.png)
 
-PWM bit 編碼細節（t=24~42us，master 內部訊號展開）：bit0(handoff=1) 為 LOW_SHORT 短脈衝，其餘 bit(=0) 為 LOW_LONG 長脈衝，各 1us 一個 bit：
+PWM bit 編碼細節（t=24~42us，peer_A 內部訊號展開）：bit0(handoff=1) 為 LOW_SHORT 短脈衝，其餘 bit(=0) 為 LOW_LONG 長脈衝，各 1us 一個 bit：
 
 ![bit 編碼細節](Upload/image/annotated_3_bit_encoding.png)
 
-對面（slave）收端解碼過程（t=165~210us）：`sstate` 停在 `S_RX_WAIT` 直到偵測到 master 送出的 frame 邊緣才進 `S_RX`，逐 bit 取樣後在 `S_GAP1` 打包 ack 準備回覆：
+對面（peer_B）收端解碼過程（t=165~210us）：`sstate` 停在 `S_RX_WAIT` 直到偵測到 peer_A 送出的 frame 邊緣才進 `S_RX`，逐 bit 取樣後在 `S_GAP1` 打包 ack 準備回覆：
 
 ![RX 解碼細節](Upload/image/annotated_4_rx_decode.png)
 
@@ -185,7 +198,7 @@ AOV（Activity-on-Vertex，事件依賴關係）與 TSPEC（實際模擬時間�
 
 ### Bug 2：shared-GRST 自己誤判自己的重置為對面重置
 
-Shared-GRST 第一版做法是「重置時把 `link_wire` 拉低一段固定時間，對面偵測到夠長的低電位就跟著重置」。上線後兩片板各自開機時的重置動作，被自己板上的偵測邏輯誤判成「對面剛剛重置」，導致 `pending_handoff`/`pending_score` 在還沒真正送出前就被清空。改用第 3 節描述的新設計——重用既有的 bit+ACK+`rx_confirm` 機制而非獨立廣播——徹底避開了「自己讀到自己線路狀態」這個根因，因為 master/slave 嚴格輪流才能驅動線路，RX 只會在自己指定的收訊狀態才取樣，沒有誤讀自己輸出的窗口。
+Shared-GRST 第一版做法是「重置時把 `link_wire` 拉低一段固定時間，對面偵測到夠長的低電位就跟著重置」。上線後兩片板各自開機時的重置動作，被自己板上的偵測邏輯誤判成「對面剛剛重置」，導致 `pending_handoff`/`pending_score` 在還沒真正送出前就被清空。改用第 3 節描述的新設計——重用既有的 bit+ACK+`rx_confirm` 機制而非獨立廣播——徹底避開了「自己讀到自己線路狀態」這個根因，因為 peer_A/peer_B 嚴格輪流才能驅動線路，RX 只會在自己指定的收訊狀態才取樣，沒有誤讀自己輸出的窗口。
 
 ## 7. 建置與模擬方式
 
